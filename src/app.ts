@@ -1,4 +1,3 @@
-export const helloWord = (): string => {
-  let message: string = 'Hello, World!'
-  return message;
+export const displayFirstPrefix = (prefixes: string[]): string => {
+  return prefixes[0];
 };
