@@ -1,5 +1,5 @@
-import { helloWord } from "./app";
+import { displayFirstPrefix } from "./app";
 
-test('basic', () => {
-    expect(helloWord()).toBe('Hello, World!');
+test('display a string of the first prefix', () => {
+    expect(displayFirstPrefix(['c'])).toBe('c');
 })
