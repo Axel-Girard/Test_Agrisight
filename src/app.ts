@@ -9,6 +9,6 @@ function displayFirstPrefix(prefixes: string[]): string {
   return prefixes[0]
 }
 
-displayPrefix(['c', 'n'])
+console.log(displayPrefix(['c', 'n', 's']))
 
 export { displayPrefix, displayFirstPrefix }
