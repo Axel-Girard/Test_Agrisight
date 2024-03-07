@@ -24,6 +24,16 @@ test('display an array of strings based on prefixes', () => {
   expect(formatPrefixesList(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns', 'cs', 'n', 'ns', 's'])
 })
 
+test('display an array of strings based on 2 prefixes', () => {
+  expect(formatPrefixesList(['c', 'n'])).toStrictEqual(['c', 'cn', 'n'])
+})
+
+test('display an array of strings based on 4 prefixes', () => {
+  expect(formatPrefixesList(['c', 'n', 's', 'e'])).toStrictEqual([
+    'c', 'cn', 'cns', 'cnse', 'cse', 'ce', 'n', 'ns', 'nse', 'ne', 's', 'se', 'e'
+  ])
+})
+
 test('display an empty array if no prefixes are given', () => {
   expect(formatPrefixesList([])).toStrictEqual([])
 })
