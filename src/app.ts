@@ -1,3 +1,8 @@
+/**
+ * Return an array of string with all combinations of the prefixes
+ * @param prefixes Array of string that contains letter to be display
+ * @returns 
+ */
 function displayListPrefix(prefixes: string[]): string[] {
   const message: string[] = []
   let tempPrefixes: string[] = []
