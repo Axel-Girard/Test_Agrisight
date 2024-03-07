@@ -1,16 +1,27 @@
-function displayAllPrefix(prefixes: string[]): string[] {
+function displayListPrefix(prefixes: string[]): string[] {
+  const message: string[] = []
+  let tempPrefixes: string[] = prefixes
+
+  message.push(...displayAllPrefixAsString(tempPrefixes))
+  tempPrefixes.splice(tempPrefixes.length - 2, 1)
+  message.push(displayPrefixAsString(tempPrefixes))
+
+  return message
+}
+
+function displayAllPrefixAsString(prefixes: string[]): string[] {
   const message: string[] = []
   let tempPrefixes: string[] = []
 
   prefixes.map((value: string) => {
     tempPrefixes.push(value)
-    message.push(displayPrefix(tempPrefixes))
+    message.push(displayPrefixAsString(tempPrefixes))
   })
 
   return message
 }
 
-function displayPrefix(prefixes: string[]): string {
+function displayPrefixAsString(prefixes: string[]): string {
   let message: string = ""
   prefixes.map((value: string) => message += value)
 
@@ -21,6 +32,4 @@ function displayFirstPrefix(prefixes: string[]): string {
   return prefixes[0]
 }
 
-console.log(displayAllPrefix(['c', 'n', 's']))
-
-export { displayAllPrefix, displayPrefix, displayFirstPrefix }
+export { displayAllPrefixAsString, displayPrefixAsString, displayFirstPrefix, displayListPrefix }
