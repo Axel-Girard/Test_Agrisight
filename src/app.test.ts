@@ -1,5 +1,6 @@
 import {
   displayUpgradingPrefixAsString,
+  displayDowngradingPrefixAsString,
   displayListPrefix,
 } from "./app.ts"
 
@@ -9,6 +10,14 @@ test('display an array of string for the first 2 inputs', () => {
 
 test('display an array of string for the first 3 inputs', () => {
   expect(displayUpgradingPrefixAsString(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns'])
+})
+
+test('display an array of string with a downward list of string and a prefix', () => {
+  expect(displayDowngradingPrefixAsString('c', ['s'])).toStrictEqual(['cs'])
+})
+
+test('display an empty array of string', () => {
+  expect(displayDowngradingPrefixAsString('', [])).toStrictEqual([])
 })
 
 test('display an array of string based on prefixes', () => {

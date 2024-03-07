@@ -52,6 +52,4 @@ function displayUpgradingPrefixAsString(prefixes: string[]): string[] {
   return message
 }
 
-console.log(displayListPrefix(['c']))
-
-export { displayUpgradingPrefixAsString, displayListPrefix }
+export { displayUpgradingPrefixAsString, displayDowngradingPrefixAsString, displayListPrefix }
