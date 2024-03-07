@@ -1,33 +1,33 @@
 import {
-  displayUpgradingPrefixAsString,
-  displayDowngradingPrefixAsString,
-  displayListPrefix,
+  extendPrefixes,
+  reducePrefixes,
+  formatPrefixesList,
 } from "./app.ts"
 
-test('display an array of string for the first 2 inputs', () => {
-  expect(displayUpgradingPrefixAsString(['c', 'n'])).toStrictEqual(['c', 'cn'])
+test('display an array of strings for the first 2 inputs', () => {
+  expect(extendPrefixes(['c', 'n'])).toStrictEqual(['c', 'cn'])
 })
 
-test('display an array of string for the first 3 inputs', () => {
-  expect(displayUpgradingPrefixAsString(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns'])
+test('display an array of strings for the first 3 inputs', () => {
+  expect(extendPrefixes(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns'])
 })
 
-test('display an array of string with a downward list of string and a prefix', () => {
-  expect(displayDowngradingPrefixAsString('c', ['s'])).toStrictEqual(['cs'])
+test('display an array of strings with a downward list of string and a prefix', () => {
+  expect(reducePrefixes('c', ['s'])).toStrictEqual(['cs'])
 })
 
-test('display an empty array of string', () => {
-  expect(displayDowngradingPrefixAsString('', [])).toStrictEqual([])
+test('display an empty array of strings', () => {
+  expect(reducePrefixes('', [])).toStrictEqual([])
 })
 
-test('display an array of string based on prefixes', () => {
-  expect(displayListPrefix(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns', 'cs', 'n', 'ns', 's'])
+test('display an array of strings based on prefixes', () => {
+  expect(formatPrefixesList(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns', 'cs', 'n', 'ns', 's'])
 })
 
 test('display an empty array if no prefixes are given', () => {
-  expect(displayListPrefix([])).toStrictEqual([])
+  expect(formatPrefixesList([])).toStrictEqual([])
 })
 
-test('display an array of one string if only one prefixes is given', () => {
-  expect(displayListPrefix(['c'])).toStrictEqual(['c'])
+test('display an array of one string if only one prefix is given', () => {
+  expect(formatPrefixesList(['c'])).toStrictEqual(['c'])
 })
