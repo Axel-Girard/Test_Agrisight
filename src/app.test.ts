@@ -1,26 +1,24 @@
 import {
-  displayPrefixAsString,
-  displayFirstPrefix,
-  displayAllPrefixAsString,
+  displayUpgradingPrefixAsString,
   displayListPrefix,
 } from "./app.ts"
 
-test('display a string of the first prefix', () => {
-  expect(displayFirstPrefix(['c'])).toStrictEqual('c')
-})
-
-test('display a string of the first two prefixes', () => {
-  expect(displayPrefixAsString(['c', 'n'])).toStrictEqual('cn')
-})
-
 test('display an array of string for the first 2 inputs', () => {
-  expect(displayAllPrefixAsString(['c', 'n'])).toStrictEqual(['c', 'cn'])
+  expect(displayUpgradingPrefixAsString(['c', 'n'])).toStrictEqual(['c', 'cn'])
 })
 
 test('display an array of string for the first 3 inputs', () => {
-  expect(displayAllPrefixAsString(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns'])
+  expect(displayUpgradingPrefixAsString(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns'])
 })
 
-test('display an array of string for the first 4 inputs', () => {
-  expect(displayListPrefix(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns', 'cs'])
+test('display an array of string based on prefixes', () => {
+  expect(displayListPrefix(['c', 'n', 's'])).toStrictEqual(['c', 'cn', 'cns', 'cs', 'n', 'ns', 's'])
+})
+
+test('display an empty array if no prefixes are given', () => {
+  expect(displayListPrefix([])).toStrictEqual([])
+})
+
+test('display an array of one string if only one prefixes is given', () => {
+  expect(displayListPrefix(['c'])).toStrictEqual(['c'])
 })
